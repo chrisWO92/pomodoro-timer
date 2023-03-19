@@ -1,0 +1,25 @@
+#time-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+  
+#break-label,
+#session-label {
+    font-size: 25px;
+}
+  
+#break-control,
+#session-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.pointer {
+    cursor: pointer;
+}
