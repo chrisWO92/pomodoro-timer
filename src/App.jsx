@@ -33,7 +33,7 @@ const App = () => {
     if (play) {
       interval = setInterval(() => {
         setDisplayTime(prevDisplayTime => prevDisplayTime - 1);
-      }, 300);
+      }, 1000);
     }else{
       clearInterval(interval);
     }
