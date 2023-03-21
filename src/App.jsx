@@ -7,9 +7,9 @@ import './app.css';
 
 const App = () => {
 
-  const [displayTime, setDisplayTime] = useState(60);
+  const [displayTime, setDisplayTime] = useState(25*60);
   const [breakTime, setBreakTime] = useState(5*60);
-  const [sessionTime, setSessionTime] = useState(60);
+  const [sessionTime, setSessionTime] = useState(25*60);
   const [countID, setCountID] = useState('Session');
   const [play, setPlay] = useState(false);
   const beep = useRef();
@@ -45,9 +45,9 @@ const App = () => {
   }
 
   const reset = () => {
-    setDisplayTime(60);
+    setDisplayTime(25*60);
     setBreakTime(5*60);
-    setSessionTime(60);
+    setSessionTime(25*60);
     setCountID('Session');
     setPlay(false);
     beep.current.load();

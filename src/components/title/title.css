@@ -1,3 +1,55 @@
+/*========== GENERAL DESKTOP ===========*/
+
 #app-title {
-    font-size: 50px;
+  font-size: 6.5vh;
+}
+
+/*----------------- MEDIA QUERIES ------------------*/
+
+/*========== BIG NOTEBOOKS ===========*/
+@media screen and (max-width: 1300px) and (orientation: landscape) {
+
+  #app-title {
+    font-size: 7vh;
   }
+
+}
+
+
+/*========== SMALL NOTEBOOKS ===========*/
+@media screen and (max-width: 1050px) and (orientation: landscape) {
+
+  #app-title {
+    font-size: 6vh;
+  }
+
+}
+
+
+
+/*========== BIG TABLETS ===========*/
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+
+  #app-title {
+    font-size: 7vw;
+  }
+
+}
+
+/*========== SMALL TABLETS ===========*/
+@media screen and (max-width: 820px)and (orientation: portrait) {
+    
+  #app-title {
+    font-size: 6.5vw;
+  }
+
+}
+
+/*========== SMARTPHONES ===========*/
+@media screen and (max-width: 420px) and (orientation: portrait) {
+
+  #app-title {
+    font-size: 7.5vw;
+  }
+
+}

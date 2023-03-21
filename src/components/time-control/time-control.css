@@ -1,14 +1,16 @@
+/*========== GENERAL DESKTOP ===========*/
+
 #time-control {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 70px;
+    gap: 3vw;
 }
   
 #break-label,
 #session-label {
-    font-size: 25px;
+    font-size: 3.4vh;
 }
   
 #break-control,
@@ -17,9 +19,99 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 1.3vw;
 }
 
 .pointer {
     cursor: pointer;
+}
+
+
+/*----------------- MEDIA QUERIES ------------------*/
+
+/*========== BIG NOTEBOOKS ===========*/
+@media screen and (max-width: 1300px) and (orientation: landscape) {
+
+    #break-label,
+    #session-label {
+        font-size: 3.2vh;
+    }
+
+    #break-control,
+    #session-control {
+        gap: 1.3vw;
+        font-size: 3vh;
+    }
+  
+}
+  
+  
+/*========== SMALL NOTEBOOKS ===========*/
+@media screen and (max-width: 1050px) and (orientation: landscape) {
+  
+    #break-label,
+    #session-label {
+        font-size: 3.2vh;
+    }
+
+    #break-control,
+    #session-control {
+        gap: 1.3vw;
+        font-size: 2.8vh;
+    }
+  
+}
+  
+  
+  
+/*========== BIG TABLETS ===========*/
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+  
+    #time-control {
+        gap: 8vw;
+    }
+
+    #break-label,
+    #session-label {
+        font-size: 4.2vw;
+    }
+
+    #break-control,
+    #session-control {
+        gap: 3.5vw;
+        font-size: 4vw;
+    }
+  
+}
+  
+/*========== SMALL TABLETS ===========*/
+@media screen and (max-width: 820px)and (orientation: portrait) {
+
+    #break-label,
+    #session-label {
+        font-size: 4.0vw;
+    }
+
+    #break-control,
+    #session-control {
+        gap: 3.5vw;
+        font-size: 3.8vw;
+    }
+  
+}
+  
+/*========== SMARTPHONES ===========*/
+@media screen and (max-width: 420px) and (orientation: portrait) {
+  
+    #break-label,
+    #session-label {
+        font-size: 4.9vw;
+    }
+
+    #break-control,
+    #session-control {
+        gap: 3.5vw;
+        font-size: 5vw;
+    }
+  
 }

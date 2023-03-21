@@ -1,19 +1,109 @@
+/*========== GENERAL DESKTOP ===========*/
+
 #timer-label {
-    border: 2px solid black;
-    border-radius: 30px;
-    height: 200px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0px;
-  }
+  border: 2px solid black;
+  border-radius: 2rem;
+  height: 26vh;
+  width: 21vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
   
+#string {
+  font-size: 4.5vh;
+}
+  
+#time-left {
+  font-size: 8vh;
+}
+
+
+/*----------------- MEDIA QUERIES ------------------*/
+
+/*========== BIG NOTEBOOKS ===========*/
+@media screen and (max-width: 1300px) and (orientation: landscape) {
+
+  #timer-label {
+    border-radius: 1.5rem;
+    height: 26vh;
+    width: 23vw;
+  }
+    
   #string {
-    font-size: 25px;
+    font-size: 4vh;
   }
-  
+    
   #time-left {
-    font-size: 75px;
+    font-size: 7vh;
   }
+
+}
+
+
+/*========== SMALL NOTEBOOKS ===========*/
+@media screen and (max-width: 1050px) and (orientation: landscape) {
+
+  
+
+}
+
+
+
+/*========== BIG TABLETS ===========*/
+@media screen and (max-width: 1400px) and (orientation: portrait) {
+
+  #timer-label {
+    border-radius: 1.2rem;
+    height: 18vh;
+    width: 38vw;
+  }
+    
+  #string {
+    font-size: 4.1vw;
+  }
+    
+  #time-left {
+    font-size: 8.5vw;
+  }
+
+}
+
+/*========== SMALL TABLETS ===========*/
+@media screen and (max-width: 820px)and (orientation: portrait) {
+    
+  #timer-label {
+    border-radius: 0.8rem;
+    height: 19vh;
+    width: 40vw;
+  }
+    
+  #string {
+    font-size: 4.1vw;
+  }
+    
+  #time-left {
+    font-size: 8.5vw;
+  }
+
+}
+
+/*========== SMARTPHONES ===========*/
+@media screen and (max-width: 420px) and (orientation: portrait) {
+
+  #timer-label {
+    border-radius: 0.7rem;
+    height: 18vh;
+    width: 47vw;
+  }
+    
+  #string {
+    font-size: 5.7vw;
+  }
+    
+  #time-left {
+    font-size: 11vw;
+  }
+
+}
