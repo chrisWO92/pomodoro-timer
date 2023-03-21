@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Title from './components/title/Title'
 import TimerControl from './components/time-control/TimeControl'
 import TimerLabel from "./components/timer-label/TimerLabel";
@@ -12,71 +12,45 @@ const App = () => {
   const [sessionTime, setSessionTime] = useState(60);
   const [countID, setCountID] = useState('Session');
   const [play, setPlay] = useState(false);
-  var interval;
-
-
-  /*lo que se me ocurre hacer es usar useEffect para hacer la consulta if (displayTime === 0), y hacer allí la actualización de estados pertinente*/
+  const beep = useRef();
 
   useEffect(() => {
-    console.log(displayTime);
     if (displayTime === 0){
-      console.log('true');
+      if (countID === 'Session') {
+        setDisplayTime(breakTime);
+        setCountID('Break');
+      }else{
+        setDisplayTime(sessionTime);
+        setCountID('Session');
+      }
+      beep.current.play();
     }
-  }, [displayTime]);
+  }, [displayTime, countID, breakTime, sessionTime]);
 
 
-  const updateSessionCount = () => {
-    if (displayTime === 0) {
-        if (countID === 'Session') {
-            setDisplayTime(breakTime);
-            setCountID('Break');
-        }else{
-            setDisplayTime(sessionTime);
-            setCountID('Session');
-        }
-    }else{
+  useEffect(() => {
+    let interval = null;
+    if (play) {
+      interval = setInterval(() => {
         setDisplayTime(prevDisplayTime => prevDisplayTime - 1);
-    }
-  }
-
-  // const playpause = () => {
-  //   //setPlay(!play);
-  //   if (play === true){
-  //       interval = setInterval(updateSessionCount, 300);
-  //       //clearInterval(interval);
-  //   }else{
-  //     //clearInterval(interval);
-  //   }
-  // }
-
-  const playB = () => {
-    if (play === true) {
-      return;
+      }, 300);
     }else{
-      setPlay(true);
-      interval = setInterval(updateSessionCount, 300);
-    }
-    
-  }
-
-  const pause = () => {
-    if (play === false) {
-      return;
-    }else{
-      setPlay(false);
       clearInterval(interval);
     }
-    
+    return () => clearInterval(interval);
+  }, [play]);
+
+  const playpause = () => {
+    setPlay(!play);    
   }
 
   const reset = () => {
-    pause();
     setDisplayTime(60);
     setBreakTime(5*60);
     setSessionTime(60);
     setCountID('Session');
     setPlay(false);
-    clearInterval(interval);
+    beep.current.load();
   }
 
   return (
@@ -94,9 +68,14 @@ const App = () => {
         countID={countID}
       />
       <PlayControls
-        playB={playB}
-        pause={pause}
+        playpause={playpause}
         reset={reset}
+      />
+      <audio
+        ref={beep}
+        id="beep" 
+        preload="auto"   
+        src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav" 
       />
     </div>
   );

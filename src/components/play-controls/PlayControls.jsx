@@ -4,16 +4,17 @@ import {BsFillPlayFill} from 'react-icons/bs'
 import {BsFillPauseFill} from 'react-icons/bs'
 import {GrPowerReset} from 'react-icons/gr'
 
-const PlayControls = ({playB, pause, reset}) => {
+const PlayControls = ({playpause, reset}) => {
 
   return (
     <div id='button-controls'>
         <div 
           id="start-pause" 
           className='pointer'
+          onClick={playpause}
         >
-            <BsFillPlayFill id='start-icon' onClick={playB}/>
-            <BsFillPauseFill id='pause-icon' onClick={pause}/>
+            <BsFillPlayFill id='start-icon' />
+            <BsFillPauseFill id='pause-icon' />
         </div>
         <div 
           id="reset" 
